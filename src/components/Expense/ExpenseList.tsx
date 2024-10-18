@@ -1,5 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
-import { AppContext } from "../../context/AppContextExpenses";
+import { AppContext } from "../../context/AppContext";
 import { useContext } from "react";
 import { Expense } from "../../types/types";
 
