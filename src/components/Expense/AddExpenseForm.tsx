@@ -20,6 +20,8 @@ const AddExpenseForm = () => {
 	const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
+
+
 		// Exercise: Add add new expense to expenses context array
 	};
 
