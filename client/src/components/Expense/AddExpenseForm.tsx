@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Expense } from "../../types/types"
 import { v4 as uuidv4 } from "uuid"
+import { createExpense } from "../../utils/expense-utils";
 
 
 const AddExpenseForm = () => {
@@ -21,7 +22,7 @@ const AddExpenseForm = () => {
 		setCost(event.target.value)
 	}
 
-	const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		const newExpense: Expense = {
@@ -30,7 +31,13 @@ const AddExpenseForm = () => {
 			cost: parseFloat(cost),
 		};
 
-		setExpenses([...expenses, newExpense]);
+
+		try {
+			const createdExpense = await createExpense(newExpense);
+			setExpenses([...expenses, createdExpense]);
+		} catch (err) {
+			console.error("Fatal error when creating expense: ", err)
+		}
 	};
 
 	return (
