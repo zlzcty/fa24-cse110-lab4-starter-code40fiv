@@ -12,7 +12,7 @@ test('create an expense', () => {
   fireEvent.click(screen.getByRole('button', { name: /Save/i }));
 
   // check that the expense is listed
-  expect(screen.queryByText('Pizza')).not.toBeInTheDocument();
+  expect(screen.getByText('Pizza')).toBeInTheDocument();
 
   // check that the budget data is correct
   expect(screen.getByText('Budget: $999')).toBeInTheDocument();
