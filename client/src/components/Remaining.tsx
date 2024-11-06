@@ -10,9 +10,9 @@ const Remaining = () => {
 
   const alertType = totalExpenses > budget ? "alert-danger" : "alert-success";
 
-  if (alertType === "alert-danger") {
-    window.alert("You have exceeded your budget!");
-  }
+  // if (alertType === "alert-danger") {
+  //   window.alert("You have exceeded your budget!");
+  // }
 
   return (
     <div className={`alert ${alertType}`}>
